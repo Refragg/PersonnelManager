@@ -12,7 +12,11 @@
         }
       ],
       "dest": "api",
-      "includePrivateMembers": true
+      "includePrivateMembers": true,
+      "allowCompilationErrors": true,
+      "properties": {
+        "TargetFramework": "net48"
+      }
     }
   ],
   "build": {
