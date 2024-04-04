@@ -76,6 +76,7 @@ namespace PersonnelManager.Vue
             // btnConnection
             // 
             this.btnConnection.AutoSize = true;
+            this.btnConnection.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConnection.Enabled = false;
             this.btnConnection.Location = new System.Drawing.Point(197, 58);
             this.btnConnection.Name = "btnConnection";
@@ -87,6 +88,7 @@ namespace PersonnelManager.Vue
             // 
             // ConnectionForm
             // 
+            this.AcceptButton = this.btnConnection;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 91);

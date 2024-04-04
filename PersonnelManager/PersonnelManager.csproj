@@ -77,9 +77,11 @@
     <ItemGroup>
         <Compile Include="BddManager\BddManager.cs" />
         <Compile Include="DAL\Access.cs" />
+        <Compile Include="DAL\ResponsableAccess.cs" />
         <Compile Include="Model\Absence.cs" />
         <Compile Include="Model\Motif.cs" />
         <Compile Include="Model\Personnel.cs" />
+        <Compile Include="Model\Responsable.cs" />
         <Compile Include="Model\Service.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

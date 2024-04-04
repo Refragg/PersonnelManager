@@ -26,7 +26,18 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnConnection_Click(object sender, EventArgs e)
         {
-            
+            if (!ResponsableAccess.ValidationIdentifiants(new Responsable(txtUsername.Text, txtPassword.Text)))
+            {
+                MessageBox.Show("Les identifiants donnés sont invalides, veuillez les revérifier avant de recommencer",
+                    "Identifiants invalides", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+                return;
+            }
+
+            var mainForm = new PersonnelsForm();
+            mainForm.Closed += (o, ev) => Close();
+            mainForm.Show();
+            Hide();
         }
 
         /// <summary>
