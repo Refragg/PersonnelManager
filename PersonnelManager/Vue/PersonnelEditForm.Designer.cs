@@ -92,12 +92,15 @@ namespace PersonnelManager.Vue
             // 
             // btnConfirm
             // 
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.Enabled = false;
             this.btnConfirm.Location = new System.Drawing.Point(306, 90);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 10;
             this.btnConfirm.Text = "Add/Edit";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -115,6 +118,7 @@ namespace PersonnelManager.Vue
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(151, 20);
             this.txtNom.TabIndex = 5;
+            this.txtNom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
             // 
             // txtPrenom
             // 
@@ -122,6 +126,7 @@ namespace PersonnelManager.Vue
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(151, 20);
             this.txtPrenom.TabIndex = 6;
+            this.txtPrenom.TextChanged += new System.EventHandler(this.txtPrenom_TextChanged);
             // 
             // txtMail
             // 
@@ -129,6 +134,7 @@ namespace PersonnelManager.Vue
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(170, 20);
             this.txtMail.TabIndex = 7;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             // 
             // txtTel
             // 
@@ -136,6 +142,7 @@ namespace PersonnelManager.Vue
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(170, 20);
             this.txtTel.TabIndex = 8;
+            this.txtTel.TextChanged += new System.EventHandler(this.txtTel_TextChanged);
             // 
             // cbxService
             // 

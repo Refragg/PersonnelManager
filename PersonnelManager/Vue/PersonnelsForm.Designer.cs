@@ -33,8 +33,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAbsences = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lstPersonnels = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.lstPersonnels)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -77,18 +77,21 @@
             this.btnAbsences.UseVisualStyleBackColor = true;
             this.btnAbsences.Click += new System.EventHandler(this.btnAbsences_Click);
             // 
-            // dataGridView1
+            // lstPersonnels
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 397);
-            this.dataGridView1.TabIndex = 5;
+            this.lstPersonnels.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.lstPersonnels.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.lstPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.lstPersonnels.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.lstPersonnels.Location = new System.Drawing.Point(12, 12);
+            this.lstPersonnels.MultiSelect = false;
+            this.lstPersonnels.Name = "lstPersonnels";
+            this.lstPersonnels.RowHeadersVisible = false;
+            this.lstPersonnels.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.lstPersonnels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.lstPersonnels.Size = new System.Drawing.Size(776, 397);
+            this.lstPersonnels.TabIndex = 5;
+            this.lstPersonnels.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lstPersonnels_CellContentDoubleClick);
             // 
             // PersonnelsForm
             // 
@@ -96,7 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lstPersonnels);
             this.Controls.Add(this.btnAbsences);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -106,11 +109,11 @@
             this.MaximizeBox = false;
             this.Name = "PersonnelsForm";
             this.Text = "Gestionnaire de personnel";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstPersonnels)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView lstPersonnels;
 
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;

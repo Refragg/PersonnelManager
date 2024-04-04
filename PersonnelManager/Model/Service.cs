@@ -25,5 +25,11 @@
             IdService = idService;
             Nom = nom;
         }
+
+        /// <summary>
+        /// Méthode remplacée pour gérer l'affichage d'un service
+        /// </summary>
+        /// <returns>Le nom de ce service</returns>
+        public override string ToString() => Nom;
     }
 }

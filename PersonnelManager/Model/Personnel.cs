@@ -13,27 +13,27 @@
         /// <summary>
         /// Le nom de famille du personnel
         /// </summary>
-        public string Nom { get; }
+        public string Nom { get; set; }
         
         /// <summary>
         /// Le prénom du personnel
         /// </summary>
-        public string Prenom { get; }
+        public string Prenom { get; set; }
         
         /// <summary>
         /// Le numéro de téléphone du personnel
         /// </summary>
-        public string Telephone { get; }
+        public string Telephone { get; set; }
         
         /// <summary>
         /// L'adresse mail du personnel
         /// </summary>
-        public string Mail { get; }
+        public string Mail { get; set; }
         
         /// <summary>
         /// Le service auquel le personnel appartient
         /// </summary>
-        public Service Service { get; }
+        public Service Service { get; set; }
 
         /// <summary>
         /// Le constructeur d'un personnel
