@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using PersonnelManager.DAL;
+using PersonnelManager.Controller;
 using PersonnelManager.Model;
 
 namespace PersonnelManager.Vue
@@ -11,6 +10,11 @@ namespace PersonnelManager.Vue
     /// </summary>
     public partial class ConnectionForm : Form
     {
+        /// <summary>
+        /// Le contrôleur pour cette fenêtre
+        /// </summary>
+        private ConnectionFormController _controller = new ConnectionFormController();
+        
         /// <summary>
         /// Constructeur de la fenêtre
         /// </summary>
@@ -26,7 +30,7 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnConnection_Click(object sender, EventArgs e)
         {
-            if (!ResponsableAccess.ValidationIdentifiants(new Responsable(txtUsername.Text, txtPassword.Text)))
+            if (!_controller.ValidationIdentifiants(new Responsable(txtUsername.Text, txtPassword.Text)))
             {
                 MessageBox.Show("Les identifiants donnés sont invalides, veuillez les revérifier avant de recommencer",
                     "Identifiants invalides", MessageBoxButtons.OK, MessageBoxIcon.Warning);

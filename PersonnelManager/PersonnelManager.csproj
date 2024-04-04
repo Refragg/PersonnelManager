@@ -76,6 +76,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BddManager\BddManager.cs" />
+        <Compile Include="Controller\ConnectionFormController.cs" />
         <Compile Include="DAL\Access.cs" />
         <Compile Include="DAL\ResponsableAccess.cs" />
         <Compile Include="Model\Absence.cs" />
@@ -148,9 +149,6 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Controller\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
