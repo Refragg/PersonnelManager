@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace PersonnelManager.DAL
 {
@@ -22,16 +23,12 @@ namespace PersonnelManager.DAL
         /// </summary>
         private Access()
         {
-            try
-            {
-                string connectionString = Environment.GetEnvironmentVariable("PersonnelManager_ConnectionString");
-                Manager = BddManager.BddManager.GetInstance(connectionString);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Environment.Exit(1);
-            }
+            string connectionString = Environment.GetEnvironmentVariable("PersonnelManager_ConnectionString");
+            if (string.IsNullOrEmpty(connectionString))
+                MessageBox.Show(
+                    "La chaîne de connexion à la base de données est vide, la connexion à la base de données va probablement échouer.\r\n\r\nVeuillez vous référer a la documentation pour fournir une châine de connexion valide",
+                    "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Manager = BddManager.BddManager.GetInstance(connectionString);
         }
     }
 }
