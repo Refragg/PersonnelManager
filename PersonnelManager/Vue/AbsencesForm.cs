@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using PersonnelManager.Controller;
 using PersonnelManager.Model;
 
 namespace PersonnelManager.Vue
@@ -10,12 +11,40 @@ namespace PersonnelManager.Vue
     public partial class AbsencesForm : Form
     {
         /// <summary>
+        /// Le contrôleur pour cette fenêtre
+        /// </summary>
+        private AbsencesFormController _controller = new AbsencesFormController();
+        
+        /// <summary>
+        /// Le personnel en question
+        /// </summary>
+        private Personnel _personnel;
+        
+        /// <summary>
         /// Constructeur de la fenêtre
         /// </summary>
         /// <param name="personnel">Le personnel pour lequel afficher les absences</param>
         public AbsencesForm(Personnel personnel)
         {
+            _personnel = personnel;
+            
             InitializeComponent();
+            RefreshAbsences();
+
+            lstAbsences.Columns["Personnel"].Visible = false;
+
+            Text = $"Absences pour '{_personnel.Nom} {_personnel.Prenom}'";
+        }
+        
+        /// <summary>
+        /// Méthode qui rafraichit la liste des absences pour un personnel 
+        /// </summary>
+        public void RefreshAbsences()
+        {
+            lstAbsences.DataSource = new BindingSource
+            {
+                DataSource = _controller.GetAbsences(_personnel)
+            };
         }
 
         /// <summary>

@@ -76,10 +76,13 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BddManager\BddManager.cs" />
+        <Compile Include="Controller\AbsencesFormController.cs" />
         <Compile Include="Controller\ConnectionFormController.cs" />
         <Compile Include="Controller\PersonnelEditFormController.cs" />
         <Compile Include="Controller\PersonnelsFormController.cs" />
+        <Compile Include="DAL\AbsenceAccess.cs" />
         <Compile Include="DAL\Access.cs" />
+        <Compile Include="DAL\MotifAccess.cs" />
         <Compile Include="DAL\PersonnelAccess.cs" />
         <Compile Include="DAL\ServiceAccess.cs" />
         <Compile Include="Model\Absence.cs" />

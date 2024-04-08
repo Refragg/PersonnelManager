@@ -37,6 +37,32 @@ namespace PersonnelManager.DAL
         }
 
         /// <summary>
+        /// Méthode permettant de récupérer un personnel précis depuis son ID dans la base de données
+        /// </summary>
+        /// <param name="idPersonnel">L'ID du personnel à récupérer</param>
+        /// <returns>Le personnel en question</returns>
+        /// <exception cref="MySqlConnector.MySqlException">La requête vers la base de données a échoué</exception>
+        public static Personnel GetPersonnel(int idPersonnel)
+        {
+            var result = _access.Manager.ReqSelect(
+                "select idpersonnel, personnel.nom, prenom, tel, mail, idservice " +
+                "from personnel " +
+                "where idpersonnel = @idpersonnel",
+                new Dictionary<string, object> { { "idpersonnel", idPersonnel } }
+            );
+
+            var rawPersonnel = result[0];
+
+            return new Personnel(
+                (int)rawPersonnel[0],
+                (string)rawPersonnel[1],
+                (string)rawPersonnel[2],
+                (string)rawPersonnel[3],
+                (string)rawPersonnel[4],
+                ServiceAccess.GetService((int)rawPersonnel[5]));
+        }
+
+        /// <summary>
         /// Méthode pour mettre à jour les champs d'un personnel dans la base de données
         /// </summary>
         /// <param name="personnel">Le personnel à mettre à jour</param>

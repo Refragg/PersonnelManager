@@ -42,11 +42,13 @@ namespace PersonnelManager.Vue
             // lstAbsences
             // 
             this.lstAbsences.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.lstAbsences.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.lstAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.lstAbsences.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.lstAbsences.Location = new System.Drawing.Point(12, 12);
             this.lstAbsences.MultiSelect = false;
             this.lstAbsences.Name = "lstAbsences";
+            this.lstAbsences.RowHeadersVisible = false;
             this.lstAbsences.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.lstAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lstAbsences.Size = new System.Drawing.Size(323, 304);

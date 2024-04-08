@@ -25,5 +25,14 @@
             IdMotif = idMotif;
             Libelle = libelle;
         }
+
+        /// <summary>
+        /// Méthode remplacée pour gérer l'affichage d'un motif d'absence
+        /// </summary>
+        /// <returns>Le nom du motif d'absence</returns>
+        public override string ToString()
+        {
+            return Libelle;
+        }
     }
 }

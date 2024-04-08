@@ -87,7 +87,14 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnAbsences_Click(object sender, EventArgs e)
         {
-            new AbsencesForm(null).ShowDialog();
+            if (lstPersonnels.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne");
+                return;
+            }
+
+            Personnel personnel = (Personnel)((BindingSource)lstPersonnels.DataSource)[lstPersonnels.SelectedRows[0].Index];
+            new AbsencesForm(personnel).ShowDialog();
         }
 
         /// <summary>
