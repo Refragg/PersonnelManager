@@ -39,7 +39,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(470, 415);
+            this.btnAdd.Location = new System.Drawing.Point(380, 415);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -49,7 +49,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(551, 415);
+            this.btnEdit.Location = new System.Drawing.Point(461, 415);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
@@ -59,7 +59,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(632, 415);
+            this.btnDelete.Location = new System.Drawing.Point(542, 415);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -69,7 +69,7 @@
             // 
             // btnAbsences
             // 
-            this.btnAbsences.Location = new System.Drawing.Point(713, 415);
+            this.btnAbsences.Location = new System.Drawing.Point(623, 415);
             this.btnAbsences.Name = "btnAbsences";
             this.btnAbsences.Size = new System.Drawing.Size(75, 23);
             this.btnAbsences.TabIndex = 4;
@@ -89,7 +89,7 @@
             this.lstPersonnels.RowHeadersVisible = false;
             this.lstPersonnels.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.lstPersonnels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lstPersonnels.Size = new System.Drawing.Size(776, 397);
+            this.lstPersonnels.Size = new System.Drawing.Size(686, 397);
             this.lstPersonnels.TabIndex = 5;
             this.lstPersonnels.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lstPersonnels_CellContentDoubleClick);
             // 
@@ -98,7 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 450);
             this.Controls.Add(this.lstPersonnels);
             this.Controls.Add(this.btnAbsences);
             this.Controls.Add(this.btnDelete);

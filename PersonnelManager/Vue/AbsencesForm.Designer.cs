@@ -49,12 +49,12 @@ namespace PersonnelManager.Vue
             this.lstAbsences.Name = "lstAbsences";
             this.lstAbsences.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.lstAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lstAbsences.Size = new System.Drawing.Size(599, 304);
+            this.lstAbsences.Size = new System.Drawing.Size(323, 304);
             this.lstAbsences.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(293, 322);
+            this.btnAdd.Location = new System.Drawing.Point(15, 322);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace PersonnelManager.Vue
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(374, 322);
+            this.btnEdit.Location = new System.Drawing.Point(96, 322);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace PersonnelManager.Vue
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(455, 322);
+            this.btnDelete.Location = new System.Drawing.Point(177, 322);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace PersonnelManager.Vue
             // btnBack
             // 
             this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.Location = new System.Drawing.Point(536, 322);
+            this.btnBack.Location = new System.Drawing.Point(258, 322);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace PersonnelManager.Vue
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnBack;
-            this.ClientSize = new System.Drawing.Size(623, 357);
+            this.ClientSize = new System.Drawing.Size(350, 357);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
