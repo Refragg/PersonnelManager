@@ -21,10 +21,7 @@ namespace PersonnelManager.DAL
         public static List<Personnel> GetPersonnels()
         {
             var result = _access.Manager.ReqSelect(
-                "select idpersonnel, personnel.nom, prenom, tel, mail, idservice, service.nom " +
-                "from personnel " +
-                "join service using(idservice)"
-                );
+                "select idpersonnel, personnel.nom, prenom, tel, mail, idservice from personnel");
             
             var personnels = new List<Personnel>(result.Count);
             foreach (object[] ligne in result)
@@ -34,7 +31,7 @@ namespace PersonnelManager.DAL
                     (string)ligne[2],
                     (string)ligne[3],
                     (string)ligne[4],
-                    new Service((int)ligne[5], (string)ligne[6])));
+                    ServiceAccess.GetService((int)ligne[5])));
 
             return personnels;
         }

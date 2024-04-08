@@ -28,5 +28,22 @@ namespace PersonnelManager.DAL
 
             return services;
         }
+
+        /// <summary>
+        /// Méthode permettant de récupérer un service précis depuis son ID dans la base de données
+        /// </summary>
+        /// <param name="idService">L'ID du service à récupérer</param>
+        /// <returns>Le service en question</returns>
+        /// <exception cref="MySqlConnector.MySqlException">La requête vers la base de données a échoué</exception>
+        public static Service GetService(int idService)
+        {
+            var result = _access.Manager.ReqSelect(
+                "select idservice, nom from service where idservice = @idservice",
+                new Dictionary<string, object> { { "idservice", idService } });
+
+            var rawService = result[0];
+
+            return new Service((int)rawService[0], (string)rawService[1]);
+        }
     }
 }
