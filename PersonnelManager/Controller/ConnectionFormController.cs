@@ -9,10 +9,11 @@ namespace PersonnelManager.Controller
     public class ConnectionFormController
     {
         /// <summary>
-        /// Méthode permettant de valider les identifiants d'un responsable
+        /// Méthode permettant de valider les identifiants d'un utilisateur de l'application
         /// </summary>
-        /// <param name="responsable">Le responsable à qui il faut vérifier les identifiants</param>
+        /// <param name="login">Le nom d'utilisateur de la personne à vérifier</param>
+        /// <param name="password">Le mot de passe de l'utilisateur à vérifier</param>
         /// <returns>'true' si les identifiants sont valides, 'false' sinon</returns>
-        public bool ValidationIdentifiants(Responsable responsable) => ResponsableAccess.ValidationIdentifiants(responsable);
+        public bool ValidationIdentifiants(string login, string password) => Access.ValidationIdentifiants(login, password);
     }
 }

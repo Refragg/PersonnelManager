@@ -30,7 +30,7 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnConnection_Click(object sender, EventArgs e)
         {
-            if (!_controller.ValidationIdentifiants(new Responsable(txtUsername.Text, txtPassword.Text)))
+            if (!_controller.ValidationIdentifiants(txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("Les identifiants donnés sont invalides, veuillez les revérifier avant de recommencer",
                     "Identifiants invalides", MessageBoxButtons.OK, MessageBoxIcon.Warning);
