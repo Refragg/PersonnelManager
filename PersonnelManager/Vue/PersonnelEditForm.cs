@@ -11,6 +11,19 @@ namespace PersonnelManager.Vue
     public partial class PersonnelEditForm : Form
     {
         /// <summary>
+        /// Représente un des champs d'un personnel
+        /// </summary>
+        public enum PersonnelField
+        {
+            None,
+            Nom,
+            Prenom,
+            Mail,
+            Tel,
+            Service
+        }
+        
+        /// <summary>
         /// Le contrôleur pour cette fenêtre
         /// </summary>
         private PersonnelEditFormController _controller = new PersonnelEditFormController();
@@ -24,7 +37,8 @@ namespace PersonnelManager.Vue
         /// Constructeur de la fenêtre
         /// </summary>
         /// <param name="personnel">Le personnel à éditer, s'il faut ajouter un personnel, utilisez null</param>
-        public PersonnelEditForm(Personnel personnel = null)
+        /// <param name="startField">Le champ a focus en premier</param>
+        public PersonnelEditForm(Personnel personnel = null, PersonnelField startField = PersonnelField.None)
         {
             InitializeComponent();
             RefreshServices();
@@ -56,6 +70,26 @@ namespace PersonnelManager.Vue
                     break;
                 }
             }
+            
+            Control toFocus = txtNom;
+            
+            switch (startField)
+            {
+                case PersonnelField.Prenom:
+                    toFocus = txtPrenom;
+                    break;
+                case PersonnelField.Mail:
+                    toFocus = txtMail;
+                    break;
+                case PersonnelField.Tel:
+                    toFocus = txtTel;
+                    break;
+                case PersonnelField.Service:
+                    toFocus = cbxService;
+                    break;
+            }
+            
+            Shown += (sender, args) => toFocus.Focus();
         }
         
         /// <summary>

@@ -54,7 +54,7 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            new AbsenceEditForm().ShowDialog();
+            AdditionAbsence();
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace PersonnelManager.Vue
         /// <param name="e">Paramètre inutilisé</param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            new AbsenceEditForm().ShowDialog();
+            EditionAbsence();
         }
 
         /// <summary>
@@ -73,6 +73,61 @@ namespace PersonnelManager.Vue
         /// <param name="sender">Paramètre inutilisé</param>
         /// <param name="e">Paramètre inutilisé</param>
         private void btnDelete_Click(object sender, EventArgs e)
+        {
+            SuppressionAbsence();
+        }
+
+        /// <summary>
+        /// Méthode événementielle qui gère la pression d'une touche à l'intérieur de la liste des absences du personnels
+        /// </summary>
+        /// <param name="sender">Paramètre inutilisé</param>
+        /// <param name="e">Paramètre inutilisé</param>
+        private void lstAbsences_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                case Keys.E:
+                    e.Handled = true;
+                    EditionAbsence();
+                    break;
+                case Keys.Delete:
+                case Keys.Subtract:
+                    e.Handled = true;
+                    SuppressionAbsence();
+                    break;
+                case Keys.Tab:
+                    e.Handled = true;
+                    btnAdd.Focus();
+                    break;
+                case Keys.A:
+                case Keys.Add:
+                    e.Handled = true;
+                    AdditionAbsence();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui gère l'addition d'une absence pour un personnel
+        /// </summary>
+        private void AdditionAbsence()
+        {
+            new AbsenceEditForm().ShowDialog();
+        }
+        
+        /// <summary>
+        /// Méthode qui gère l'edition d'une absence pour un personnel
+        /// </summary>
+        private void EditionAbsence()
+        {
+            new AbsenceEditForm().ShowDialog();
+        }
+
+        /// <summary>
+        /// Méthode qui gère la suppression d'une absence pour un personnel
+        /// </summary>
+        private void SuppressionAbsence()
         {
             MessageBox.Show("Confirmer ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
