@@ -76,6 +76,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BddManager\BddManager.cs" />
+        <Compile Include="Controller\AbsenceEditFormController.cs" />
         <Compile Include="Controller\AbsencesFormController.cs" />
         <Compile Include="Controller\ConnectionFormController.cs" />
         <Compile Include="Controller\PersonnelEditFormController.cs" />

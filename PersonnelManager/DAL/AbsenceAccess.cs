@@ -38,5 +38,68 @@ namespace PersonnelManager.DAL
 
             return absences;
         }
+
+        /// <summary>
+        /// Méthode pour ajouter une absence à un personnel dans la base de données
+        /// </summary>
+        /// <param name="absence">L'absence à ajouter</param>
+        /// <exception cref="MySqlConnector.MySqlException">La requête vers la base de données a échoué</exception>
+        public static void AddAbsence(Absence absence)
+        {
+            var requestParams = new Dictionary<string, object>
+            {
+                { "idpersonnel", absence.Personnel.IdPersonnel },
+                { "datedebut", absence.DateDebut },
+                { "datefin", absence.DateFin },
+                { "idmotif", absence.Motif.IdMotif }
+            };
+            
+            _access.Manager.ReqUpdate(
+                "insert into absence " +
+                "values(@idpersonnel, " +
+                "@datedebut, " +
+                "@datefin, " +
+                "@idmotif)",
+                requestParams);
+        }
+        
+        /// <summary>
+        /// Méthode pour mettre à jour les champs d'une absence d'un personnel dans la base de données
+        /// </summary>
+        /// <param name="absence">L'absence à mettre à jour</param>
+        /// <param name="dateDebutInitiale">La date de début de l'absence avant son changement</param>
+        /// <exception cref="MySqlConnector.MySqlException">La requête vers la base de données a échoué</exception>
+        public static void UpdateAbsence(Absence absence, DateTime dateDebutInitiale)
+        {
+            var requestParams = new Dictionary<string, object>
+            {
+                { "idpersonnel", absence.Personnel.IdPersonnel },
+                { "datedebut", absence.DateDebut },
+                { "datedebutinitiale", dateDebutInitiale },
+                { "datefin", absence.DateFin },
+                { "idmotif", absence.Motif.IdMotif }
+            };
+            
+            _access.Manager.ReqUpdate(
+                "update absence " +
+                "set idpersonnel = @idpersonnel, " +
+                "datedebut = @datedebut, " +
+                "datefin = @datefin, " +
+                "idmotif = @idmotif " +
+                "where idpersonnel = @idpersonnel and datedebut = @datedebutinitiale",
+                requestParams);
+        }
+        
+        /// <summary>
+        /// Méthode pour supprimer une absence d'un personnel dans la base de données
+        /// </summary>
+        /// <param name="absence">L'absence concernée</param>
+        /// <exception cref="MySqlConnector.MySqlException">La requête vers la base de données a échoué</exception>
+        public static void DeleteAbsence(Absence absence)
+        {
+            var requestParams = new Dictionary<string, object> {{ "idpersonnel", absence.Personnel.IdPersonnel }, { "datedebut", absence.DateDebut }};
+            
+            _access.Manager.ReqUpdate("delete from absence where idpersonnel = @idpersonnel and datedebut = @datedebut", requestParams);
+        }
     }
 }

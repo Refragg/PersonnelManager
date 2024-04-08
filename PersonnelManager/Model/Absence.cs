@@ -15,17 +15,17 @@ namespace PersonnelManager.Model
         /// <summary>
         /// La date de début de l'absence
         /// </summary>
-        public DateTime DateDebut { get; }
+        public DateTime DateDebut { get; set; }
         
         /// <summary>
         /// La date de fin de l'absence
         /// </summary>
-        public DateTime DateFin { get; }
+        public DateTime DateFin { get; set; }
         
         /// <summary>
         /// Le motif associé à cette absence
         /// </summary>
-        public Motif Motif { get; }
+        public Motif Motif { get; set; }
 
         /// <summary>
         /// Constructeur pour une absence

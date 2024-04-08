@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using PersonnelManager.Controller;
 using PersonnelManager.Model;
@@ -44,6 +45,7 @@ namespace PersonnelManager.Vue
             lstAbsences.DataSource = new BindingSource
             {
                 DataSource = _controller.GetAbsences(_personnel)
+                    .OrderByDescending(x => x.DateDebut)
             };
         }
 
@@ -113,7 +115,12 @@ namespace PersonnelManager.Vue
         /// </summary>
         private void AdditionAbsence()
         {
-            new AbsenceEditForm().ShowDialog();
+            var form = new AbsenceEditForm(_personnel);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                _controller.AddAbsence(form.Absence);
+                RefreshAbsences();
+            }
         }
         
         /// <summary>
@@ -121,7 +128,36 @@ namespace PersonnelManager.Vue
         /// </summary>
         private void EditionAbsence()
         {
-            new AbsenceEditForm().ShowDialog();
+            if (lstAbsences.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne");
+                return;
+            }
+
+            AbsenceEditForm.AbsenceField selectedField = AbsenceEditForm.AbsenceField.None;
+
+            switch (lstAbsences.CurrentCell.ColumnIndex)
+            {
+                case 1:
+                    selectedField = AbsenceEditForm.AbsenceField.DateDebut;
+                    break;
+                case 2:
+                    selectedField = AbsenceEditForm.AbsenceField.DateFin;
+                    break;
+                case 3:
+                    selectedField = AbsenceEditForm.AbsenceField.Motif;
+                    break;
+            }
+            
+            Absence absence = (Absence)((BindingSource)lstAbsences.DataSource)[lstAbsences.SelectedRows[0].Index];
+
+            DateTime dateDebutInitiale = absence.DateDebut;
+
+            if (new AbsenceEditForm(_personnel, absence, selectedField).ShowDialog() == DialogResult.OK)
+            {
+                _controller.UpdateAbsence(absence, dateDebutInitiale);
+                RefreshAbsences();
+            }
         }
 
         /// <summary>
@@ -129,7 +165,19 @@ namespace PersonnelManager.Vue
         /// </summary>
         private void SuppressionAbsence()
         {
-            MessageBox.Show("Confirmer ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (lstAbsences.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne");
+                return;
+            }
+
+            Absence absence = (Absence)((BindingSource)lstAbsences.DataSource)[lstAbsences.SelectedRows[0].Index];
+
+            if (MessageBox.Show($"Voulez vous vraiment supprimer l'absence de '{absence.Personnel.Nom} {absence.Personnel.Prenom}' ayant commencé le {absence.DateDebut.ToShortDateString()} à {absence.DateDebut.ToShortTimeString()} ? ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+                return;
+            
+            _controller.DeleteAbsence(absence);
+            RefreshAbsences();
         }
     }
 }
