@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using MySqlConnector;
 
 namespace PersonnelManager.DAL
@@ -28,7 +27,7 @@ namespace PersonnelManager.DAL
         /// <returns>'true' si les identifiants sont valides, 'false' sinon</returns>
         public static bool ValidationIdentifiants(string login, string password)
         {
-            string connectionString = Environment.GetEnvironmentVariable("PersonnelManager_ConnectionString");
+            string connectionString = Properties.Settings.Default.ConnectionString;
             if (string.IsNullOrEmpty(connectionString))
                 MessageBox.Show(
                     "La chaîne de connexion à la base de données est vide, la connexion à la base de données va probablement échouer.\r\n\r\nVeuillez vous référer a la documentation pour fournir une châine de connexion valide",
