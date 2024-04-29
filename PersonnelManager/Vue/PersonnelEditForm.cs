@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PersonnelManager.Controller;
 using PersonnelManager.Model;
@@ -41,6 +42,9 @@ namespace PersonnelManager.Vue
         public PersonnelEditForm(Personnel personnel = null, PersonnelField startField = PersonnelField.None)
         {
             InitializeComponent();
+            try { Icon = new Icon("icon.ico"); }
+            catch { Console.WriteLine("Impossible de changer l'icône de la fenêtre"); }
+            
             RefreshServices();
             Personnel = personnel;
 

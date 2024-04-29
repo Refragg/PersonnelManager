@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PersonnelManager.Controller;
 using PersonnelManager.Model;
@@ -45,6 +46,9 @@ namespace PersonnelManager.Vue
         public AbsenceEditForm(Personnel personnel, Absence absence = null, AbsenceField startField = AbsenceField.None)
         {
             InitializeComponent();
+            try { Icon = new Icon("icon.ico"); }
+            catch { Console.WriteLine("Impossible de changer l'icône de la fenêtre"); }
+            
             RefreshMotifs();
             _personnel = personnel;
             Absence = absence;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using PersonnelManager.Controller;
@@ -30,6 +31,9 @@ namespace PersonnelManager.Vue
             _personnel = personnel;
             
             InitializeComponent();
+            try { Icon = new Icon("icon.ico"); }
+            catch { Console.WriteLine("Impossible de changer l'icône de la fenêtre"); }
+            
             RefreshAbsences();
 
             lstAbsences.Columns["Personnel"].Visible = false;

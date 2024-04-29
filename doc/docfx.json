@@ -47,6 +47,8 @@
       "_appName": "PersonnelManager",
       "_appTitle": "PersonnelManager",
       "_enableSearch": true,
+      "_appLogoPath": "logo.png",
+      "_appFaviconPath": "icon.ico",
       "pdf": true
     }
   }

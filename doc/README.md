@@ -2,6 +2,8 @@
 
 Ce dossier contient le projet DocFX permettant de générer la documentation technique
 
+La dernière version est accessible en ligne [ici](https://personnelmanager.jfrancart.fr/)
+
 ## Préparation
 
 Si ce n'est pas déjà fait, il faut installer les outils dotnet CLI, plus d'informations sont disponibles [ici](https://learn.microsoft.com/fr-fr/dotnet/core/tools/)
