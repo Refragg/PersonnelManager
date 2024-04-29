@@ -53,6 +53,7 @@ namespace PersonnelManager.Vue
             this.lstAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lstAbsences.Size = new System.Drawing.Size(323, 304);
             this.lstAbsences.TabIndex = 0;
+            this.lstAbsences.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lstAbsences_CellContentDoubleClick);
             this.lstAbsences.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstAbsences_KeyDown);
             // 
             // btnAdd

@@ -50,6 +50,7 @@ namespace PersonnelManager.Vue
             {
                 DataSource = _controller.GetAbsences(_personnel)
                     .OrderByDescending(x => x.DateDebut)
+                    .ToList() // Empêche l'application de crasher en cas d'un personnel avec 0 absences
             };
         }
 
@@ -112,6 +113,16 @@ namespace PersonnelManager.Vue
                     AdditionAbsence();
                     break;
             }
+        }
+        
+        /// <summary>
+        /// Méthode événementielle quand on double clique sur une case de la liste des absences d'un personnel
+        /// </summary>
+        /// <param name="sender">Paramètre inutilisé</param>
+        /// <param name="e">Paramètre inutilisé</param>
+        private void lstAbsences_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditionAbsence();
         }
 
         /// <summary>

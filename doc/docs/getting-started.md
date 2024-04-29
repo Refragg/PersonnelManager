@@ -4,7 +4,7 @@ Prérequis :
 
 - Un ordinateur avec comme système d'exploitation Windows 7 ou plus récent
 - Le runtime [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) installé sur l'ordinateur
-- Une base de données créée à partir du fichier SQL disponible dans le dépôt de l'application
+- Une base de données créée à partir du [fichier SQL disponible dans le dépôt de l'application](https://github.com/Refragg/PersonnelManager/blob/main/BDDEmployes.sql)
 
 Installation :
 
